@@ -1,0 +1,40 @@
+.mainContainer{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2%;
+    border-left: 1px solid rgb(211, 211, 211);
+    border-right: 1px solid rgb(211, 211, 211);
+}
+
+.mainbrandName img{
+
+    width: 50px;
+    height: auto;
+    margin: 0 10px 0 0;
+
+}
+
+.topBrandBrandName h2{
+    color: black;
+    font-size: 1.4rem;
+}
+
+.topBrandBrandName h6{
+    color: gray;
+    font-size: .7rem;
+}
+.homeLogo{
+    width: 250px;
+    height: auto;
+    margin: 50px;
+}
+
+.page-container-topic-bar img{
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.changepasswordcontainer{
+    width: 400px;
+}

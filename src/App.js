@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
 
+import NavBar from './components/NavBar';
+import { Footer } from './components/Footer';
+import { BrowserRouter as Router,  Route, Routes } from "react-router-dom";
+
+import { Home } from './components/pages/Home';
+import { Login } from './components/pages/Login';
+import { Settings } from './components/pages/Settings';
+import { Admin } from './components/pages/Admin';
+import { Midwives } from './components/pages/Midwives';
+
 function App() {
+  const userKey = sessionStorage.getItem('userkey');
+  const usertype = sessionStorage.getItem('usertype');
+
+  var userLoggedInStatus = false;
+  if(userKey !== null && usertype !== null){
+    userLoggedInStatus = true;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <NavBar 
+        isLoggedIn={userLoggedInStatus}
+        usertype={usertype}
+        />
+          <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/settings" element={<Settings/>} />
+          <Route path="/midwives" element={<Midwives/>} />
+          <Route path="/admin" element={<Admin/>} />
+        </Routes>
+      </Router>
+      <Footer/>
+    </>
   );
 }
 
